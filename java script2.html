@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Simple Form Validation</title>
+    <style>
+        .error{color:red;font-size: 32px;}
+        .success{color: green;font-weight: bold;}
+        label{display:block;margin-top: 8px;}
+    </style>
+    
+</head>
+<body>
+    <h3>Simple Form Validation(js)</h3>
+    <form onsubmit="return ValidateForm()">
+        <!--Name(required)-->
+        <label>
+            Name:
+            <input type="text" id="name">
+        </label>
+        <span id="nameErr" class="error"></span>
+        <!--Email(format check)-->
+        <label>
+            Email:
+            <input type="text" id="email">
+        </label>
+        <span id="emailErr" class="error"></span>
+        <!--Password+Confirm(match)-->
+        <label>
+            Password:
+            <input type="password" id="password">
+        </label>
+        <span id="passErr" class="error"></span>
+        <label>
+            Confirm Password:
+            <input type="password" id="confirmPassword">
+        </label>
+        <span id="confirmErr" class="error"></span>
+        <!--Age(number range)-->
+        <label>
+            Age(18-60):
+            <input type="number" id="age">
+        </label>
+        <span id="ageErr" class="error"></span>
+        <br><br>
+        <input type="submit" value="Submit">
+        <p id="result" class="success"></p>
+    </form>
+    <script>
+        function ValidateForm(){
+            //clear previous messsages
+            document.getElementById('nameErr').innerText='';
+            document.getElementById('emailErr').innerText='';
+            document.getElementById('passErr').innerText='';
+            document.getElementById('confirmErr').innerText='';
+            document.getElementById('ageErr').innerText='';
+            document.getElementById('result').innerText='';
+            const name=document.getElementById('name').value.trim();
+            const email=document.getElementById('email').value.trim();
+            const password=document.getElementById('password').value;
+            const confirmPassword=document.getElementById('confirmPassword').value;
+            const ageValue=document.getElementById('age').value.trim();
+            //simple email regex
+            const emailRegex= / ^ [a-zA-ZO-9._%+-]+@[a-zA-ZO-9-]+\.[a-zA-Z]{2,}$/;
+            //validation flags
+            let valid=true;
+            //required name
+            if (!name){
+                document.getElementById('nameErr').innerText='Name is required.';
+                valid=false;
+            }
+            //email format
+            if (!email){
+                document.getElementById('emailErr').innerText='Email is requried.';
+                valid=false;
+            }else if (!emailRegex.test(email)){
+                document.getElementById('emailErr').innerText='Enter a valid email address.';
+                valid=false;
+            }
+            //password required&length example
+            if (!password){
+                document.getElementById('passErr').innerText='Password is requried.';
+                valid=false;
+            }else if(password.length<6){
+                document.getElementById('passErr').innerText='Password must be at least 6 characrers.';
+                valid=false;
+            }
+            //password match
+            if (!confirmPassword){
+                document.getElementById('confirmErr').innerText='Please confirm password.';
+                valid=false;
+            }else if (password !==confirmPassword){
+                document.getElementById('cofirmErr').innerText='Passwords do not match.';
+                valid=false;
+            }
+            //age range check(number)
+            const age=ageValue === ''? NaN:Number(ageValue);
+            if (Number.isNaN(age)){
+                document.getElementById('ageErr').innerText='Age is required.';
+                valid=false;
+
+            }else if (age<18||age>60){
+                document.getElementById('ageErr').innerText='Age must be between 18 and 60.';
+                valid=false;
+            }
+            //final result
+            if (valid){
+                //show success(here we prevent actual submission for demo)
+                document.getElementById('result').innerText='Form is valid- submission OK (demo).';
+                return false;
+
+            }else{
+                return false;
+            }
+        }
+    </script>
+    
+</body>
+
+
+</html>

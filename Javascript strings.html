@@ -1,0 +1,349 @@
+<!--<html>
+    <body>
+        <h1>JavaScript Data Types</h1>
+        <h2>JavaScript Strings</h2>
+        <p>You can use quotes inside a string,as long as they don't match the quotes 
+        surronding the string:</p>
+        <p id="demo"></p>
+        <script>
+            let answer1 = "Supervisor name is known";
+            let answer2 = "He is called 'smith'";
+            let answer3 = "He is called 'smith'";
+            document.getElementById("demo").innerHTML = answer1+"<br>"+answer2+"<br>"+answer3;
+        </script>
+    </body>
+</html>
+
+<hr/>
+
+<html>
+    <body>
+        <h1>JavaScript string operators</h1>
+        <h2>The + operator</h2>
+        <p>Adding a number and a string.</p>
+        <p id="demo"></p>
+        <script>
+            let x = 5 + 5;
+            let y = "5" + 5;
+            let z = "Hello" + 5;
+            document.getElementById("demo").innerHTML = x+"<br>"+y+"<br>"+z;
+          </script>
+    </body>
+</html>
+
+<hr/>
+
+
+<html>
+    <body>
+        <h1>JavaScript string operators</h1>
+        <p id="demo"></p>
+        <script>
+            let text1 = "AB";
+            let text2 = "Ab";
+            let result = text1<text2;
+            document.getElementById("demo").innerHTML = "ls text1 less than text2?" + result;
+          </script>
+    </body>
+</html>
+
+
+<html>
+    <head>
+        <body>
+            <script>
+                console.log(typeof "fgh");
+                console.log(typeof 54);
+            </script>
+        </body>
+    </head>
+</html>
+
+
+
+<html>
+    <body>
+        <h1>JavaScript if</h1>
+        <p>Display"Good day!"if the hour is less than 18:00:</p>
+        <p id="demo">Good Evening!</p>
+        <script>
+            if(new Date().getHours()<18)
+            {document.getElementById("demo").innerHTML = "Good day!";}
+          </script>
+    </body>
+</html>
+
+
+<html>
+    <body>
+        <h1>JavaScript Nested if</h1>
+        <p id="demo"></p>
+        <script>
+        let age = 15;
+        let country = "USA";
+        let text ="You can Not Drive!";
+        if(country == "USA"){
+          if(age >= 16){
+            text ="You can drive!";
+          }            
+        }
+        document.getElementById("demo").innerHTML = text; 
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <body>
+        <h1>JavaScript if..else</h1>
+        <p>A time-based grreting:</p>
+        <p id="demo"></p>
+        <script>
+        const hour = new Date().getHours();
+        let grreting;
+        if(hour < 18)
+        {
+            greeting = "Good day";
+        }
+        else
+        {
+            greeting = "Good evening";
+        }            
+        document.getElementById("demo").innerHTML = greeting; 
+        </script>
+    </body>
+</html>
+
+
+
+<html>
+    <body>
+        <h2 id="check">JavaScript Math.random()</h2>
+        <p id="demo"></p>
+        <script>
+        let text;
+        let num=Math.random;
+        if(num < 0.5)
+        {
+            text = "<a href='https://www.google.com/search?q=ums+login&oq=&gs_lcrp'>Visit Google</a>";
+        }
+        else
+        {
+            text = "<a href='https://support.google.com/chrome?p=help&ctx=keyboard#topic=7439538'>UMS</a>";
+        }            
+        
+        document.getElementById("demo").innerHTML = text;
+        document.getElementById("check").innerHTML = num; 
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <body>
+        <h1>JavaScript if..else</h1>
+        <p>A time-based grreting:</p>
+        <p id="demo"></p>
+        <script>
+        const time = new Date().getHours();
+        let grreting;
+        if(time < 10)
+        {
+            greeting = "Good morning";
+        }
+        else if(time < 20)
+        {
+            greeting = "Good day";
+        }
+        else
+        {
+            greeting = "Good evening"
+        }            
+        document.getElementById("demo").innerHTML = greeting; 
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <body>
+        <h1>JavaScript Ternary</h1>
+        <p id="demo"></p>
+        <script>
+        let age = 16;
+        let text = (age < 18)? "Minor" : "Adult";  
+        document.getElementById("demo").innerHTML = text; 
+        </script>
+    </body>
+</html>
+
+<html>
+    <body>
+        <h1>JavaScript Switch</h1>
+        <p id="demo"></p>
+        <script>
+        let day;
+        let dayNumber = newDate().getDay();
+        switch(dayNumber)
+        {
+            case 0:
+                day = "Sunday";
+                break;  
+            case 1:
+                day = "Monday"
+                break
+            case 2:
+                day = "Tuesday"
+                break
+            case 3:
+                day = "Wednesday"
+                break
+            case 4:
+                day = "Thursday"
+                break
+            case 5:
+                day = "Friday"
+                break
+            case 6:
+                day = "Saturday"
+                break
+            default:
+                day = "Unknown Day"  
+        }           
+        document.getElementById("demo").innerHTML = "Today is" +day; 
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <body>
+        <h1>JavaScript break</h1>
+        <h2>The break statement in a loop</h2>
+        <p>Break the loop when the loop counter is 3:</p>
+        <p id="demo"></p>
+        <script>
+        let text = "";
+        loop1:for(let j = 1;j < 5;i++)
+        {
+            loop2:for(let i = 1;i < 5;i++)
+        {
+            if(i==3){break loop1;}
+            text +=i + "<br>"
+        }
+        }                  
+        document.getElementById("demo").innerHTML = text; 
+        </script>
+    </body>
+</html>
+
+
+
+<html>
+    <body>
+        <h1>JavaScript break</h1>
+        <h2>The continue statement</h2>
+        <p>skip the iteration step when i equal 3.</p>
+        <p id="demo"></p>
+        <script>
+        let text = "";
+        
+        for (let i = 1;i < 10;i++)
+        {
+            if (i==3){continue;}
+            text +=i*10+"<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+        </script>
+    </body>
+</html>
+
+
+
+<html>
+    <body>
+        <h1>JavaScript Alert</h1>
+        <button onclick="myfunction()">Try it</button>
+        <script>
+        function myfunction()
+        {
+            alert("I am an alert box!")
+        }
+        </script>
+    </body>
+</html>
+
+
+
+<html>
+    <body>
+        <h1>JavaScript Confrim box</h1>
+        <button onclick="myfunction()">Try it</button>
+        <p id="demo"></p>
+        <script>
+        function myfunction()
+        {
+            var txt;
+            if(confirm("Press a button"))
+        {
+            txt = "You pressed OK!";
+        }else{
+        }
+        }
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <body>
+        <h1>JavaScript Objects</h1>
+        <h2>Accessing Nested Objects</h2>
+        <p id="demo"></p>
+        <script>
+            const myObj = 
+            {
+                name :"Sree",
+                age : "18",
+                myCars:myfunction
+                {
+                    car1:"Ford",
+                    car2:"BMW",
+                    car3:"Lambargine"
+                }
+            }
+        document.getElementById("demo").innerHTML = myObj.myCars.car2;
+        </script>
+    </body>
+</html>
+
+
+
+<html>
+    <body>
+        <h1>JavaScript Objects</h1>
+        <h2>Adding a Method</h2>
+        <p id="demo"></p>
+        <script>
+            const person = 
+            {
+                firstname:"Sree",
+                lastname:"devanga",
+                id:143,
+            };
+            person.name=function()
+            {
+                return this.firstname+" "+this.lastname;
+            };
+            person.name = function()
+            {
+                return this,firstname+" "+this.lastname;
+            };
+            document.getElementById("demo").innerHTML = "Person's nameis: "+person.name();
+        </script>
+    </body>
+</html>-->
+
+
+ 
+
